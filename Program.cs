@@ -21,13 +21,6 @@ var items = new List<Item>();
 // Read all
 app.MapGet("/items", () => Results.Ok(items));
 
-// Read one
-app.MapGet("/items/{id}", (int id) =>
-{
-    var item = items.FirstOrDefault(i => i.Id == id);
-    return item is not null ? Results.Ok(item) : Results.NotFound();
-});
-
 // Update
 app.MapPut("/items/{id}", (int id, Item updatedItem) =>
 {
