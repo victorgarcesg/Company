@@ -22,7 +22,7 @@ var items = new List<Item>();
 app.MapGet("/items", () => Results.Ok(items));
 
 // Read one
-app.MapGet("/items/{id}", (int id) =>
+app.MapGet("/itemsx/{id}", (int id) =>
 {
     var item = items.FirstOrDefault(i => i.Id == id);
     return item is not null ? Results.Ok(item) : Results.NotFound();
