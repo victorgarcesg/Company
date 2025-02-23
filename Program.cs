@@ -18,14 +18,6 @@ app.UseHttpsRedirection();
 // In-memory list to store items
 var items = new List<Item>();
 
-// Create
-app.MapPost("/items", (Item item) =>
-{
-    item = item with { Id = items.Count + 1 };
-    items.Add(item);
-    return Results.Created($"/items/{item.Id}", item);
-});
-
 // Read all
 app.MapGet("/items", () => Results.Ok(items));
 
